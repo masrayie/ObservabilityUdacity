@@ -5,7 +5,7 @@ metadata:
     app.kubernetes.io/name: jaeger-operator
     name: jaeger-operator
   name: jaeger-operator-webhook-service
-  namespace: monitoring
+  namespace: observability
 spec:
   ports:
   - port: 443
