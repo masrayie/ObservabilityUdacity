@@ -1,7 +1,7 @@
 **Note:** For the screenshots, you can store all of your answer images in the `answer-img` directory.
 
 ## Verify the monitoring installation
-
+<img width="1161" alt="Screen Shot 2023-04-14 at 23 30 14" src="https://user-images.githubusercontent.com/38803630/232175673-d6334abf-ee7e-43a3-9b81-4983bbcf0738.png">
 *TODO:* run `kubectl` command to show the running pods and services for all components. Take a screenshot of the output and include it here to verify the installation
 
 ## Setup the Jaeger and Prometheus source
