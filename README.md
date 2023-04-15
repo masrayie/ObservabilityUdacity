@@ -12,7 +12,6 @@
 ### ProjectApp
 <img width="983" alt="Screen Shot 2023-04-15 at 09 58 51" src="https://user-images.githubusercontent.com/38803630/232179842-865072f2-3794-4260-ad3c-1f0f43714cb1.png">
 
-
 ## Setup the Jaeger and Prometheus source
 *TODO:* Expose Grafana to the internet and then setup Prometheus as a data source. Provide a screenshot of the home page after logging into Grafana.
 <img width="1678" alt="Screen Shot 2023-04-14 at 23 31 02" src="https://user-images.githubusercontent.com/38803630/232178416-16a78cbd-be9a-4152-acfe-9ba1a9e9808f.png">
@@ -23,16 +22,30 @@
 
 
 ## Describe SLO/SLI
-*TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
+We are trying to define our SLOs for *monthly uptime* and *request response time*:
+1. 99.95% Uptime or Service Availability in the year.
+2. 95% of requests completed in < 120 ms.
+
+Then we could describe the SLIs are:
+1. We achieve the availability of the app in this year is around 99.94%
+2. In average, 94% of the requests were successfully completed in < 120ms
 
 ## Creating SLI metrics.
-*TODO:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
+1. **Uptime Percentage:** This is a metric that measure the percentage of time that a service is available during a certain of time. For example, if a service is available for 99.9% of the month, that means it experienced 43.2 minutes of downtime during the month.
+
+2. **Error Rate:** This metric measures the total number of errors or failures that occur during a certain of time, usually expressed as a percentage of requests. A high error rate could as indicator of issues appear due to the application code, infrastructure, or other factors.
+
+3. **Average Response Time:** This metric can help us to monitor latency of the application and also can help to do tuning to improve the application performance.
+
+4. **Mean Time to Repair (MTTR):** This metric measures the time it takes to resolve or fix an issue once it has been detected. A high MTTR can lead to longer periods of downtime or poor performance.
+
+5. **Average Percentage of Resources (Memory/CPU):** This metric can help us to measure the impact of deployment services to monitor the utilization and do preventation before reach heap.
 
 ## Create a Dashboard to measure our SLIs
-*TODO:* Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
+![Screen Shot 2023-04-15 at 10 39 10](https://user-images.githubusercontent.com/38803630/232181194-20c19692-1259-4ab4-9d4e-a9ed9b0a7ad3.png)
 
 ## Tracing our Flask App
-*TODO:*  We will create a Jaeger span to measure the processes on the backend. Once you fill in the span, provide a screenshot of it here. Also provide a (screenshot) sample Python file containing a trace and span code used to perform Jaeger traces on the backend service.
+<img width="744" alt="Screen Shot 2023-04-15 at 11 01 13" src="https://user-images.githubusercontent.com/38803630/232181932-fb0b91fc-246f-475f-b6b4-05c3c32c41d4.png">
 
 <img width="1674" alt="Screen Shot 2023-04-14 at 23 28 17" src="https://user-images.githubusercontent.com/38803630/232178522-ac2ef52b-b702-489f-b0b6-71444f8f60f2.png">
 
@@ -42,29 +55,49 @@
 <img width="798" alt="Screen Shot 2023-04-15 at 08 40 31" src="https://user-images.githubusercontent.com/38803630/232178513-26cb6323-a96f-43c4-91ae-be3e83020e52.png">
 
 ## Report Error
-*TODO:* Using the template below, write a trouble ticket for the developers, to explain the errors that you are seeing (400, 500, latency) and to let them know the file that is causing the issue also include a screenshot of the tracer span to demonstrate how we can user a tracer to locate errors easily.
 
-TROUBLE TICKET
+**TROUBLE TICKET**
 
-Name: Error on Backend URL endpoint "/star"
+**Name:** Error on Backend URL endpoint "/star"
 
-Date: 15th April 2023, 09:36:49
+**Date:** 15th April 2023, 09:36:49
 
-Subject: Method "GET" not Allowed for accessing the URL.
+**Subject:** Method "GET" not Allowed for accessing the URL.
 
-Affected Area: Backend App endpoint "/star"
+**Affected Area:** Backend App endpoint "/star"
 
-Severity: High
+**Severity:** ***High***
 
-Description: Hitting backend url path "/star" with GET request produce error and return 405 status code. It might be caused by "GET" Method is not allowed to perform in this URL.
+**Description:** Hitting backend url path "/star" with GET request produce error and return 405 status code. It might be caused by "GET" Method is not allowed to perform in this URL.
 
 <img width="1677" alt="Screen Shot 2023-04-15 at 09 36 49" src="https://user-images.githubusercontent.com/38803630/232179271-a594966b-bf9e-409f-a694-57e742609614.png">
 
 ## Creating SLIs and SLOs
-*TODO:* We want to create an SLO guaranteeing that our application has a 99.95% uptime per month. Name four SLIs that you would use to measure the success of this SLO.
+**SLIs:**
+1. Achieve success response >75% than errors.
+2. Maximum average response time is around 2000ms per minute, smaller is better.
+3. Error response appearance is less than 10 errors within last 24h.
+4. 99% responses from applications are serving valid data format.
+
+**SLOs:**
+1. 99.99% transaction request success for each month.
+2. 99.9% backend services succeed on their first attempt.
+3. 99.9% uptime services for each month.
+4. 99.9% frontend services responses return all kind of HTTP Code with in 2000ms. 
 
 ## Building KPIs for our plan
-*TODO*: Now that we have our SLIs and SLOs, create a list of 2-3 KPIs to accurately measure these metrics as well as a description of why those KPIs were chosen. We will make a dashboard for this, but first write them down here.
+- 75% or greater successful responses than errors:
+1. Successfull requests in minute: this KPI will indicates the number of successful requests.
+2. Error requests in minute: this KPI will indicates the number of error requests.
+
+- Average Response Time less than 2000ms per minute.
+1. Uptime: this KPI will help user to determine if the response time is impacted by downtime or anomaly of a service.
+2. Average Response Time: this KPI is showing average response time of services.
+
+- Maximum Error Response appearance is 10 within last 24h:
+1. Uptime: this KPI indicates if errors are probably comming from downtime or not.
+2. Successful request per minute: this KPI indicates our systems is running well or not.
+3. Error requests per minute: it show any error requests coming.
 
 ## Final Dashboard
 *TODO*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
