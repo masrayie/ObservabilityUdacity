@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: lutfieff/backend-app-dashboard:v2.0
+          image: masrayie/backend-svc-mod-monitoring:latest
           imagePullPolicy: Always
           ports:
             - name: backendport
