@@ -10,7 +10,8 @@
 <img width="1161" alt="Screen Shot 2023-04-14 at 23 30 14" src="https://user-images.githubusercontent.com/38803630/232178268-a693c561-b379-4722-85f5-0612618bbefa.png">
 
 ### ProjectApp
-<img width="1025" alt="Screen Shot 2023-04-14 at 23 29 37" src="https://user-images.githubusercontent.com/38803630/232178271-56ccf3a9-af1d-4939-88d6-4e4c11a22324.png">
+<img width="983" alt="Screen Shot 2023-04-15 at 09 58 51" src="https://user-images.githubusercontent.com/38803630/232179842-865072f2-3794-4260-ad3c-1f0f43714cb1.png">
+
 
 ## Setup the Jaeger and Prometheus source
 *TODO:* Expose Grafana to the internet and then setup Prometheus as a data source. Provide a screenshot of the home page after logging into Grafana.
@@ -18,7 +19,8 @@
 
 ## Create a Basic Dashboard
 *TODO:* Create a dashboard in Grafana that shows Prometheus as a source. Take a screenshot and include it here.
-<img width="1680" alt="Screen Shot 2023-04-15 at 09 16 26" src="https://user-images.githubusercontent.com/38803630/232178421-491d73e2-cb0c-41a5-90d8-1b6e57622657.png">
+![Screen Shot 2023-04-15 at 10 02 27](https://user-images.githubusercontent.com/38803630/232179930-8a507fdc-5efe-4ee5-be67-3f574d45310a.png)
+
 
 ## Describe SLO/SLI
 *TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
@@ -66,5 +68,6 @@ Description: Hitting backend url path "/star" with GET request produce error and
 
 ## Final Dashboard
 *TODO*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
-<img width="1680" alt="Screen Shot 2023-04-15 at 09 25 07" src="https://user-images.githubusercontent.com/38803630/232179038-24cd1c63-0ddc-44c3-be75-7c69430a2f92.png">
+![Screen Shot 2023-04-15 at 10 08 31](https://user-images.githubusercontent.com/38803630/232180090-3f90611a-9899-4b1d-bafd-4df8b48cbc0f.png)
+
 
